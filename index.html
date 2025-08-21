@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>@Twixi_i</title>
+    <link rel="icon" href="icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -19,7 +20,7 @@
         
         .bg-image {
             width: 100vw;
-            min-height: 300vh;
+            min-height: 1500vh;
             background-image: url('background.png');
             background-size: cover;
             background-position: center;
@@ -100,9 +101,43 @@
         footer a:hover {
             color: white;
         }
+        
+        /* Header */
+		header {
+   		 position: fixed;
+			top: 0;
+   		 left: 0;
+   		 width: 100%;
+   		 padding: 10px;
+   		 text-align: center;
+   		 z-index: 3;
+   		 background-color: rgba(0, 0, 0, 0.5);
+   		 color: white;
+   		 font-size: 16px;
+		}
+
+		.header-content {
+   		 color: #ccc;
+   		 text-decoration: none;
+   		 transition: color 0.3s;
+		}
+
+		.header-content:hover {
+   		 color: white;
+		}
+		
+		.header-content i {
+   		 margin-right:
+   		 transition: color 0.3s;
+		}
     </style>
 </head>
 <body>
+	<header>
+    	<div class="header-content">
+      	  <i class="fas fa-wrench"></i> @Twixi_i
+    	</div>
+	</header>
     <div class="bg-image"></div>
     <div class="overlay"></div>
     <div class="content">
