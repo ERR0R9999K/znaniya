@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeRanksClient</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="icon" type="image/png" href="assets/images/FreeRanksClient.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Canvas -->
+    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    <div class="logo-text">FREERANKSCLIENT</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a id="home-link" href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="#ranks"><i class="fas fa-crown"></i> Ranks</a></li>
+                        <li><a href="#instructions"><i class="fas fa-download"></i> Installation</a></li>
+                        <li><a href="#releases"><i class="fas fa-code-branch"></i> Releases</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Why pay <span class="highlight">$9</span> for Super Rank?</h1>
+                <p><i class="fas fa-gem"></i> Get Super Rank and other exclusive ranks <span class="highlight">FOR FREE</span> with FreeRanksClient! Just install the extension and write in Discord.</p>
+                <div>
+                    <a href="https://www.tampermonkey.net/" class="cta-button secondary" target="_blank">
+                        <img src="assets/images/Tampermonkey.png" alt="Tampermonkey Logo" width="20px"> Tampermonkey
+                    </a>
+                    <a href="#releases" class="cta-button">
+                        <i class="fas fa-code-branch"></i> Go to Releases
+                    </a>
+                    
+                    <div class="button-separator"></div>
+                    
+                    <a href="#instructions" class="cta-button secondary">
+                        <i class="fas fa-info-circle"></i> How to get rank
+                    </a>
+                    <a href="Devlog" class="cta-button">
+                        <i class="fas fa-code"></i> Development Log
+                    </a>
+                    <a href="Videos" class="cta-button secondary">
+                        <i class="fab fa-youtube"></i> Videos
+                    </a>
+                    
+                    <div class="button-separator"></div>
+                    
+                    <a href="PlayerList" class="cta-button">
+                        <i class="fas fa-list"></i> Player List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> Why FreeRanksClient?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-dollar-sign feature-icon"></i>
+                    <h3>Completely Free</h3>
+                    <p>All ranks are available completely free. Why pay $9 for Super Rank when you can get it for free?</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-crown feature-icon"></i>
+                    <h3>Exclusive Ranks</h3>
+                    <p>Get not only Super Rank, but also other unique ranks: Developer, Admin, YouTuber and more!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3>Visible to Everyone</h3>
+                    <p>All players with the extension installed will see your colored ranks and nicknames in the game.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>Easy to Get</h3>
+                    <p>Just write in Discord private messages and get the rank without complicated procedures.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Security</h3>
+                    <p>The extension does not violate the game rules and works within permitted limits.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt feature-icon"></i>
+                    <h3>Auto Updates</h3>
+                    <p>Automatic receipt of new ranks and bug fixes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranks -->
+    <section class="ranks" id="ranks">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Available Ranks</h2>
+            <div class="ranks-container">
+                <!-- FreeRanksClient Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #cc66ff;">
+                        <i class="fas fa-zap rank-icon" style="color: #ba55d3;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #cc66ff;">Free Ranks Client</div>
+                    <div class="rank-color" style="background: #cc66ff;"></div>
+                    <p class="rank-description">Exclusive client rank with purple color</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #cc66ff; border-left-color: #cc66ff;">
+                        <i class="fas fa-gem"></i> For the client's owner only
+                    </div>
+                    <div class="rank-price price-owner">FOR CLIENT'S OWNER</div>
+                </div>
+                
+                <!-- Verified Rank with Info Button -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #1360c8;">
+                        <i class="fas fa-check rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #1360c8;">VERIFIED</div>
+                    <div class="rank-color" style="background: #1360c8;"></div>
+                    <p class="rank-description">Verified players and active community members</p>
+                    
+                    <div class="rank-info-button">
+                        <button class="info-btn" onclick="openVerifiedModal()">
+                            <i class="fas fa-info-circle"></i> How to get Verified?
+                        </button>
+                    </div>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #1360c8; border-left-color: #1360C8;">
+                        <i class="fas fa-check-circle"></i> Verified players and active participants
+                    </div>
+                    <div class="rank-price price-verified">EXCLUSIVE</div>
+                </div>
+                
+                <!-- Coder Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #a4a4a4;">
+                        <i class="fas fa-pen-to-square rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #a4a4a4;">CODER</div>
+                    <div class="rank-color" style="background: #a4a4a4;"></div>
+                    <p class="rank-description">Rank for good code developers</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #a4a4a4; border-left-color: #a4a4a4;">
+                        <i class="fas fa-laptop-code"></i> Rank of coders
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- SkyWars Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #00ffff;">
+                        <i class="fas fa-star rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #00ffff;">SKYWARS</div>
+                    <div class="rank-color" style="background: #00ffff;"></div>
+                    <p class="rank-description">Light blue nickname with star icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #00ffff; border-left-color: #00ffff;">
+                        <i class="fas fa-trophy"></i> SkyWars tournament winner
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- BedWars Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #e10000;">
+                        <i class="fas fa-cube rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #e10000;">BedWars</div>
+                    <div class="rank-color" style="background: #e10000;"></div>
+                    <p class="rank-description">Red nickname with cube icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #e10000; border-left-color: #e10000;">
+                        <i class="fas fa-trophy"></i> BedWars tournament winner
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- Owner Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #ffb914;">
+                        <i class="fas fa-crown rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #ffb914;">Owner</div>
+                    <div class="rank-color" style="background: #ffb914;"></div>
+                    <p class="rank-description">Orange nickname with golden crown</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #ffb914; border-left-color: #ffb914;">
+                        <i class="fas fa-star"></i> Server owners and content creators
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- Developer Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #a4a4a4;">
+                        <i class="fas fa-wrench rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #a4a4a4;">Developer</div>
+                    <div class="rank-color" style="background: #a4a4a4;"></div>
+                    <p class="rank-description">Gray nickname with wrench icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #a4a4a4; border-left-color: #a4a4a4;">
+                        <i class="fas fa-code"></i> Developer rank Bloxd.io
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- Admin Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #556c7d;">
+                        <i class="fas fa-person-military-pointing rank-icon" style="color: #cef3ff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #556c7d;">Admin</div>
+                    <div class="rank-color" style="background: #556c7d;"></div>
+                    <p class="rank-description">Blue-gray nickname with admin icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #556c7d; border-left-color: #556c7d;">
+                        <i class="fas fa-lock"></i> Secret Rank bloxd.io
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- YouTuber Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #ff0000;">
+                        <i class="fab fa-youtube rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #ff0000;">YouTuber</div>
+                    <div class="rank-color" style="background: #ff0000;"></div>
+                    <p class="rank-description">Red nickname with YouTube icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #ff0000; border-left-color: #ff0000;">
+                        <i class="fas fa-video"></i> Streamers and YouTube content creators
+                    </div>
+                    <div class="rank-price price-free">FREE</div>
+                </div>
+                
+                <!-- Super Rank -->
+                <div class="rank-card">
+                    <div class="rank-icon-container" style="background: #ffcc00;">
+                        <i class="fas fa-bolt rank-icon" style="color: #ffffff;"></i>
+                    </div>
+                    <div class="rank-name" style="color: #ffcc00;">Super</div>
+                    <div class="rank-color" style="background: #ffcc00;"></div>
+                    <p class="rank-description">Golden nickname with lightning icon</p>
+                    
+                    <div class="rank-divider"></div>
+                    
+                    <div class="rank-acquisition" style="color: #ffcc00; border-left-color: #ffcc00;">
+                        <i class="fas fa-bolt"></i> Available to everyone via Discord application
+                    </div>
+                    <div class="rank-price price-paid">$8.99</div>
+                    <div class="rank-price price-free" style="margin-top: 5px;">FREE</div>
+                </div>
+            </div>
+
+            <!-- Rank Notice -->
+            <div class="rank-notice">
+                <div class="rank-notice-channels">
+                    <a href="https://www.youtube.com/@err0r9999k" class="rank-notice-channel youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        <span>Follow updates on YouTube</span>
+                    </a>
+                    <a href="https://discord.com/invite/m39TZZJm" class="rank-notice-channel discord" target="_blank">
+                        <i class="fab fa-discord"></i>
+                        <span>Join our Discord community</span>
+                    </a>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; color: #d0d0d0; font-size: 1.1rem;">
+                <i class="fas fa-exclamation-circle" style="color: #ffcc00;"></i> 
+                Official Super Rank costs <span class="highlight">$8.99</span> and lasts only 90 days. With FreeRanksClient you get it <span class="highlight">FOR FREE</span> and forever!
+            </p>
+        </div>
+    </section>
+
+    <!-- Verified Rank Modal -->
+    <div id="verified-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeVerifiedModal()">&times;</span>
+            <div class="verified-modal-content">
+                <div class="verified-modal-header">
+                    <i class="fas fa-check-circle" style="color: #1360c8; font-size: 3rem;"></i>
+                    <h2>How to get <span style="color: #1360c8;">VERIFIED</span> rank?</h2>
+                </div>
+                
+                <div class="verified-requirements">
+                    <h3><i class="fas fa-video"></i> Video Requirements:</h3>
+                    <ul>
+                        <li><i class="fas fa-play-circle"></i> Record videos about Bloxd.io</li>
+                        <li><i class="fas fa-bolt"></i> Use FreeRanksClient in your videos</li>
+                        <li><i class="fas fa-hashtag"></i> The video title MUST contain the hashtag <span class="highlight">#FFRRCC</span></li>
+                    </ul>
+                    
+                    <h3><i class="fas fa-align-left"></i> Video Description Requirements:</h3>
+                    <div class="description-template">
+                        <p>This video uses the Free Ranks Client from the author @ERR0R9999K</p>
+                        <p>Download the client here: err0r9999k.github.io/FreeRanksClient</p>
+                        <p>#FFRRCC</p>
+                    </div>
+                    
+                    <div class="verified-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>After publishing your video, send the link to <strong>@ERR0R9999K</strong> on Discord → you will receive the VERIFIED rank!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Installation Instructions -->
+    <section class="instructions" id="instructions">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> How to get rank?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-download"></i></div>
+                    <div class="step-content">
+                        <h3>Install the extension</h3>
+                        <p>Download and install the FreeRanksClient extension for Tampermonkey by clicking the "Download Extension" button.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fab fa-discord"></i></div>
+                    <div class="step-content">
+                        <h3>Write in Discord</h3>
+                        <p>Click on the Discord icon at the bottom of the page and write to <span class="discord-username">@ERR0R9999K</span> in private messages.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-paper-plane"></i></div>
+                    <div class="step-content">
+                        <h3>Submit rank request</h3>
+                        <p>The message must contain:</p>
+                        <ul>
+                            <li><i class="fas fa-camera"></i> Screenshot of the main page of Bloxd.io with visible nickname</li>
+                            <li><i class="fas fa-user"></i> Your nickname (as text)</li>
+                            <li><i class="fas fa-trophy"></i> Rank you want to get</li>
+                            <li><i class="fas fa-palette"></i> Nickname color</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-gem"></i></div>
+                    <div class="step-content">
+                        <h3>Get the rank</h3>
+                        <p>After approval of the application, you will receive a unique rank and colored nickname that all players with the extension will see.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Releases Section -->
+    <section class="releases" id="releases">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-code-branch"></i> Client Releases</h2>
+            <p class="releases-subtitle">Download older versions of FreeRanksClient for compatibility</p>
+            
+            <div class="releases-list">
+                <!-- Release 4.4.4 -->
+                <div class="release-card">
+                    <div class="release-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-name">FreeRanksClient v4.4.4</div>
+                        <div class="release-version">Beta Release (A strong device is required)</div>
+                        <div class="release-date"><i class="far fa-calendar-alt"></i> May 23, 2026</div>
+                    </div>
+                    <div class="release-download">
+                        <a href="#" class="release-btn" onclick="openDownloadModal('assets/releases/FreeRanksClient_v4.4.4.user.js'); return false;">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Release 4.4.1 -->
+                <div class="release-card">
+                    <div class="release-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-name">FreeRanksClient v4.4.1</div>
+                        <div class="release-version">Beta Release (A strong device is required)</div>
+                        <div class="release-date"><i class="far fa-calendar-alt"></i> Apr 30, 2026</div>
+                    </div>
+                    <div class="release-download">
+                        <a href="#" class="release-btn" onclick="openDownloadModal('assets/releases/FreeRanksClient_v4.4.1.user.js'); return false;">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Release 4.0.0 -->
+                <div class="release-card">
+                    <div class="release-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="release-info">
+                        <div class="release-name">FreeRanksClient v4.0.0</div>
+                        <div class="release-version">Beta Release (Weaker devices)</div>
+                        <div class="release-date"><i class="far fa-calendar-alt"></i> Apr 11, 2026</div>
+                    </div>
+                    <div class="release-download">
+                        <a href="#" class="release-btn" onclick="openDownloadModal('assets/releases/FreeRanksClient_v4.0.0.user.js'); return false;">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<!-- Reviews Section -->
+	<section class="reviews" id="reviews">
+		<div class="container">
+			<h2 class="section-title"><i class="fas fa-star"></i> Player Reviews</h2>
+			<p class="reviews-subtitle">What our community says about FreeRanksClient</p>
+			
+			<div id="reviews-container" class="reviews-container">
+				<div class="reviews-loading">
+					<i class="fas fa-spinner fa-spin"></i>
+					<p>Loading reviews...</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    <div class="logo-text">FREERANKSCLIENT</div>
+                </div>
+                <p><i class="fas fa-gem"></i> Get exclusive ranks for Bloxd.io for free!</p>
+                <div class="social-links">
+                    <a href="https://discord.com/users/ERR0R9999K" class="social-link" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@err0r9999k" class="social-link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://github.com/ERR0R9999K" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <i class="far fa-copyright"></i> 2025 FreeRanksClient. All rights reserved. | <i class="fas fa-heart" style="color: #ff3366;"></i> This is a fan project, not affiliated with the official Bloxd.io developers
+            </div>
+        </div>
+    </footer>
+	
+	<!-- Download Confirmation Modal -->
+	<div id="download-modal" class="modal">
+		<div class="modal-content download-modal-content">
+			<span class="modal-close" onclick="closeDownloadModal()">&times;</span>
+			<div class="download-modal-body">
+				<div class="download-modal-icon">
+					<i class="fas fa-shield-alt"></i>
+				</div>
+				<h2>Download Confirmation</h2>
+				<p class="download-modal-text">
+					Before downloading FreeRanksClient, please read the 
+					<a href="privacy.html" target="_blank" class="privacy-link">Privacy Policy</a> 
+					and confirm your agreement.
+				</p>
+				
+				<div class="download-checkbox-group">
+					<label class="download-checkbox-label">
+						<input type="checkbox" id="privacy-consent">
+						<span class="checkmark-custom"></span>
+						<span class="checkbox-text">
+							I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> of FreeRanksClient
+						</span>
+					</label>
+				</div>
+
+				<!-- reCAPTCHA -->
+				<div class="recaptcha-wrapper">
+					<div class="g-recaptcha" id="recaptcha-container">
+						<!-- reCAPTCHA will be inserted here via JS -->
+					</div>
+				</div>
+
+				<div class="download-modal-actions">
+					<button class="download-confirm-btn" id="confirm-download-btn" disabled>
+						<i class="fas fa-download"></i> Download
+					</button>
+					<button class="download-cancel-btn" onclick="closeDownloadModal()">
+						<i class="fas fa-times"></i> Cancel
+					</button>
+				</div>
+				<p class="download-modal-footnote">
+					<i class="fas fa-info-circle"></i> By clicking "Download", you confirm that you have read the Privacy Policy
+				</p>
+			</div>
+		</div>
+	</div>
+
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
